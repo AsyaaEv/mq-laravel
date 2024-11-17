@@ -38,7 +38,15 @@
             @enderror
         </div>
         <div class="mt-8">
-            <button type="submit" class="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-md">Perbarui</button>
+            <button type="submit" wire:loading.attr="disabled" wire:target="updateStore"
+                class="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-md flex justify-center items-center">
+                <span wire:loading wire:target="updateStore">
+                    <i class="ph ph-circle-notch animate-spin text-xl"></i>
+                </span>
+                <span wire:loading.remove wire:target="updateStore">
+                    Perbarui
+                </span>
+            </button>
         </div>
     </form>
 </div>

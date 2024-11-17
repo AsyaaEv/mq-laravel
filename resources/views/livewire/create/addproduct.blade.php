@@ -61,8 +61,14 @@
             <label for="iscod" class="ml-2 text-sm">bisa COD</label>
         </div>
         <div class="mt-8">
-            <button type="submit"
-                class="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-md">Tambah produk</button>
+            <button type="submit" wire:loading.attr="disabled" wire:target="addproduct({{ $id }})" class="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-md flex justify-center items-center">
+                <span wire:loading wire:target="addproduct({{ $id }})">
+                    <i class="ph ph-circle-notch animate-spin text-xl"></i>
+                </span>
+                <span wire:loading.remove wire:target="addproduct({{ $id }})">
+                    Tambah
+                </span>
+            </button>
         </div>
     </form>
 </div>

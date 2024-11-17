@@ -50,6 +50,7 @@ class Store extends Component
             'image' => $imagePath,
             'user_id' => Auth::user()->id,
         ]);
+        session()->flash('success', 'Berhasil membuat toko!');
         return redirect()->route('home', ['tab' => 'profile']);
     }
     public function render()

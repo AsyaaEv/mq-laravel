@@ -41,6 +41,10 @@ Route::middleware('auth')->group(function () {
         return view('components.editstore');
     })->name('editstore');
 
+    Route::get('/editprofile', function () {
+        return view('components.profile.edit-profile');
+    })->name('editprofile');
+
     Route::get('/addproduct/{id}', function ($id) {
         return view('components.create.addproduct', ['id' => $id]);
     })->name('addproduct');

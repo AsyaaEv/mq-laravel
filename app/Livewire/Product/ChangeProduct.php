@@ -58,6 +58,7 @@ class ChangeProduct extends Component
         $product = Product::findOrFail($this->id);
         $product->delete();
         $this->showDeleteModal = false;
+        session()->flash('success', 'Berhasil menghapus produk!');
         return redirect()->route('mystore');
     }
 
@@ -104,6 +105,7 @@ class ChangeProduct extends Component
             'stock' => $this->stock,
         ]);
 
+        session()->flash('success', 'Berhasil memperbarui produk!');
         return redirect()->route('mystore');
     }
 }

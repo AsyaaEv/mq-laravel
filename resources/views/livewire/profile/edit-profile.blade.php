@@ -1,14 +1,10 @@
 <div class="w-full p-4 flex flex-col justify-center">
-    <div class="flex flex-col">
-        <h1 class="font-bold text-xl">Selamat datang di <span class="text-amber-500">MarketQue</span></h1>
-        <p class="text-sm">Silakan masukan data anda untuk melanjutkan ke MarketQue</p>
-    </div>
     @if (session()->has('error'))
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
             <span class="block sm:inline">{{ session('error') }}</span>
         </div>
     @endif
-    <form wire:submit.prevent="register" class="mt-8 flex flex-col justify-between">
+    <form wire:submit.prevent="updateProfile" class="flex flex-col justify-between">
         <div class="flex flex-col">
             <div class="flex flex-col">
                 <label class="text-base ">Nama Lengkap</label>
@@ -60,17 +56,14 @@
             </div>
         </div>
         <div class="mt-8">
-            <button type="submit" wire:loading.attr="disabled" wire:target="register" class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-md flex justify-center items-center disabled:opacity-75 disabled:cursor-not-allowed">
-                <span wire:loading wire:target="register">
+            <button type="submit" wire:loading.attr="disabled" wire:target="updateProfile" class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-md flex justify-center items-center disabled:opacity-75 disabled:cursor-not-allowed">
+                <span wire:loading wire:target="updateProfile">
                     <i class="ph ph-circle-notch animate-spin text-xl"></i>
                 </span>
-                <span wire:loading.remove wire:target="register">
-                    Daftar
+                <span wire:loading.remove wire:target="updateProfile">
+                    Perbarui
                 </span>
             </button>
         </div>
     </form>
-    <div class="flex justify-end mt-4">
-        <p class="text-sm">Sudah punya akun?<a href="{{ route('login') }}" class="text-amber-500 hover:underline ml-2">Masuk</a></p>
-    </div>
 </div>

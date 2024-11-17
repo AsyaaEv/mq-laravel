@@ -30,8 +30,17 @@
             </div>
         </div>
         <div class="mt-8">
-            <button type="submit"
-                class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-md">Masuk</button>
+            <button type="submit" 
+                    class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-md flex justify-center items-center disabled:opacity-75 disabled:cursor-not-allowed"
+                    wire:loading.attr="disabled" 
+                    wire:target="login">
+                <span wire:loading wire:target="login">
+                    <i class="ph ph-circle-notch animate-spin text-xl"></i>
+                </span>
+                <span wire:loading.remove wire:target="login">
+                    Masuk
+                </span>
+            </button>
         </div>
     </form>
     <div class="flex justify-end mt-4">

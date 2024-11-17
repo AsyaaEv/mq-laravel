@@ -66,6 +66,7 @@ class Addproduct extends Component
             'store_id' => $id,
         ]);
 
+        session()->flash('success', 'Berhasil menambahkan produk!');
         return redirect()->route('mystore');
     }
     public function render()

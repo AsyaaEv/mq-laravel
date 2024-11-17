@@ -61,8 +61,15 @@
             <label for="iscod" class="ml-2 text-sm">bisa COD</label>
         </div>
         <div class="mt-8">
-            <button
-                type="submit"class="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-md">Perbarui</button>
+            <button wire:loading.attr="disabled" wire:target="updateProduct"
+                type="submit"class="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-md">
+                <span wire:loading wire:target="updateProduct">
+                    <i class="ph ph-circle-notch animate-spin text-xl"></i>
+                </span>
+                <span wire:loading.remove wire:target="updateProduct">
+                    Perbarui
+                </span>
+            </button>
         </div>
         <div class="mt-4">
             <button type="button" wire:click="confirmDelete({{ $this->id }})"
@@ -87,13 +94,18 @@
                     </div>
                     <div class="flex gap-2 p-4">
                         <button wire:click="$set('showDeleteModal', false)"
-                        class="px-4 py-2 bg-gray-500 text-white text-base font-medium rounded-md shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300 ml-3">
-                        Batal
-                    </button>
-                    <button wire:click="deleteProduct"
-                        class="px-4 py-2 bg-red-500 text-white text-base font-medium rounded-md shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300">
-                        Hapus
-                    </button>
+                            class="px-4 py-2 bg-gray-500 text-white text-base font-medium rounded-md shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300 ml-3">
+                            Batal
+                        </button>
+                        <button wire:click="deleteProduct" wire:loading.attr="disabled" wire:target="deleteProduct"
+                            class="px-4 py-2 bg-red-500 text-white text-base font-medium rounded-md shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300">
+                            <span wire:loading wire:target="deleteProduct">
+                                <i class="ph ph-circle-notch animate-spin text-xl"></i>
+                            </span>
+                            <span wire:loading.remove wire:target="deleteProduct">
+                                Hapus
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>

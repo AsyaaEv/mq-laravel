@@ -62,6 +62,7 @@ class EditStore extends Component
             'image' => $imagePath,
         ]);
 
+        session()->flash('success', 'Berhasil memperbarui toko!');
         return redirect()->route('mystore');
     }
     public function render()

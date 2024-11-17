@@ -38,8 +38,14 @@
             @enderror
         </div>
         <div class="mt-8">
-            <button type="submit" class="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-md">Buat
-                Toko</button>
+            <button type="submit" wire:loading.attr="disabled" wire:target="CreateStore" class="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-md flex justify-center items-center disabled:opacity-75 disabled:cursor-not-allowed">
+                <span wire:loading wire:target="CreateStore">
+                    <i class="ph ph-circle-notch animate-spin text-xl"></i>
+                </span>
+                <span wire:loading.remove wire:target="CreateStore">
+                    Buat
+                </span>
+            </button>
         </div>
     </form>
 </div>

@@ -56,6 +56,7 @@ class Register extends Component
             ]);
 
             Auth::login($user);
+            session()->flash('success', 'Berhasil membuat akun baru!');
             return redirect()->route('home', ['tab' => 'profile']);
         } catch (\Exception $e) {
             dd($e);
