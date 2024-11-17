@@ -5,6 +5,7 @@ namespace App\Livewire\Store;
 use App\Models\Product;
 use App\Models\Store;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Storeview extends Component
 {
@@ -26,6 +27,8 @@ class Storeview extends Component
         $store = Store::findOrFail($this->id);
         $store->decrement('like');
     }
+
+    use WithPagination;
 
     public function render()
     {

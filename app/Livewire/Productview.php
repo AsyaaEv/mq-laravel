@@ -41,7 +41,7 @@ class Productview extends Component
     public function render()
     {
         $product = Product::with('store')->findOrFail($this->id);
-        $products = Product::where('id', '!=', $this->id)->get();
+        $products = Product::where('id', '!=', $this->id)->paginate(12);
         return view('livewire.productview', compact('product', 'products'));
     }
 }
